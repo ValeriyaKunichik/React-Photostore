@@ -4,12 +4,12 @@ const Context = React.createContext()
 
 function ContextProvider({children}) {
     const [allPhotos, setAllPhotos] = useState([])
-    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartitems')))
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartitems'))?JSON.parse(localStorage.getItem('cartitems')):[])
 
     useEffect(() => {
         localStorage.setItem('cartitems', JSON.stringify(cartItems));
       }, [cartItems])
-      
+
     useEffect(() => {
         setAllPhotos(stock)
     },[])
